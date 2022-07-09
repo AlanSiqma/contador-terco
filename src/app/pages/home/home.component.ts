@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
-import { environment } from '../../../environments/environment'
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,14 +10,16 @@ export class HomeComponent implements OnInit {
 
   public intention: string = '';
 
-  get url() {
-    var endpoint = environment.myUrl;
-    return `${endpoint}${this.intention}`;
-  }
-
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
+  }
+
+  nav() {
+    if (this.intention != '') {
+      var endpoint = `/third-campaign?intention=${this.intention}`;
+      this.router.navigateByUrl(endpoint);
+    }
   }
 }

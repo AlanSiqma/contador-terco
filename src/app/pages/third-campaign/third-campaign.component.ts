@@ -30,7 +30,6 @@ export class ThirdCampaignComponent implements OnInit {
 
   get myStatusTrueDiasCount() {
     var myStatusTrueDays = _.filter(this.myArrayPray, { status: true })
-    console.log(myStatusTrueDays)
     return myStatusTrueDays.length;
   }
 
@@ -48,6 +47,8 @@ export class ThirdCampaignComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     public dialog: MatDialog) {
+
+    this.thirdService.clean();
   }
 
   ngOnInit(): void {
@@ -57,7 +58,7 @@ export class ThirdCampaignComponent implements OnInit {
 
         if (params != undefined) {
 
-          var intention = params['intention']
+          var intention = params['intention'];
 
           if (intention != undefined && intention != '') {
             this.intention = intention;
@@ -69,10 +70,13 @@ export class ThirdCampaignComponent implements OnInit {
             });
 
             dialogRef.afterClosed().subscribe(result => {
-              this.myEmail = result.email;
-              this.thirdService.getIntention(this.intention, this.myEmail);
+              if (result != undefined && result.email != undefined) {
+                this.myEmail = result.email;
+                this.thirdService.getIntention(this.intention, this.myEmail);
+              } else {
+                this.router.navigate(['/'])
+              }
             });
-
           } else {
             this.router.navigate(['/'])
           }

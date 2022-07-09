@@ -1,16 +1,21 @@
-<h1>Campanha de oração</h1>
-<div style="text-align:center">
-    <div>
-        <label>Digite a intenção da campanha de oração</label>
+<div style="text-align:center" class="container">
+    <h1 class="title">Crie uma nova campanha de oração ou busque uma já existente.</h1>
+    <div class="subtitle">
+        <label>Digite a intenção da campanha de oração:</label>
+    </div>
+    <div class="">
+        <label class="email-label">
+            <span class="email-icon" id="basic-addon1">
+                🙌
+            </span>
+            <input type="text" class="email-input" placeholder="construção da igreja" aria-label="Username"
+                aria-describedby="basic-addon1" [(ngModel)]="intention">
+
+        </label>
     </div>
     <div>
-        <input [(ngModel)]="intention">
-    </div>
-    <div>
-        <a href="{{url}}">
-            <button>
-                Pesquisar
-            </button>
-        </a>
+        <button class="btn btn-primary btn-lg btn-block " type="submit" (click)="nav()">
+            Pesquisar
+        </button>
     </div>
 </div>

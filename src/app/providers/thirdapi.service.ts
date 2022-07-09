@@ -7,6 +7,9 @@ import * as _ from 'lodash';
   providedIn: 'root'
 })
 export class ThirdapiService {
+  clean() {
+    this.arrayPray = [];
+  }
 
   constructor(private http: HttpClient) { }
 

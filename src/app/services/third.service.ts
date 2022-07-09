@@ -7,6 +7,7 @@ import { ThirdapiService } from 'src/app/providers/thirdapi.service';
 })
 export class ThirdService {
 
+
   private email = ''
   public standardDates: any = []
 
@@ -16,10 +17,16 @@ export class ThirdService {
       this.standardDates.push(standardDate);
     }
   }
+  clean() {
 
-  constructor(public thirdapiService: ThirdapiService) {
+    this.thirdapiService.clean();
+
+    this.standardDates = [];
     var countCard = 10;
     this.setStandardDates(countCard);
+  }
+  constructor(public thirdapiService: ThirdapiService) {
+    this.clean();
   }
 
   getIntention(intention: string, email: string) {
@@ -56,7 +63,6 @@ export class ThirdService {
     }
 
     this.myArrayPray.forEach((item: any) => {
-      console.log(item)
       var filter = _.filter(this.standardDates, { numero: item.numero });
       if (filter.length > 0) {
         filter[0].status = item.status;

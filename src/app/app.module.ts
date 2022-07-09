@@ -10,6 +10,8 @@ import { TercoComponent } from './components/terco/terco.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ThirdCampaignComponent } from './pages/third-campaign/third-campaign.component';
 import { DatePipe } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +26,7 @@ import { DatePipe } from '@angular/common';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

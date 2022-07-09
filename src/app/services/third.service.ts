@@ -7,6 +7,7 @@ import { ThirdapiService } from 'src/app/providers/thirdapi.service';
 })
 export class ThirdService {
 
+  private email = ''
   public standardDates: any = []
 
   private setStandardDates(countCard: number) {
@@ -21,12 +22,13 @@ export class ThirdService {
     this.setStandardDates(countCard);
   }
 
-  getIntention(intention: string) {
+  getIntention(intention: string, email: string) {
+    this.email = email;
     this.thirdapiService.getIntention(intention);
   }
 
-  myArrayPray(email: string) {
-    return _.filter(this.thirdapiService.arrayPray, { email: email });
+  get myArrayPray() {
+    return _.filter(this.thirdapiService.arrayPray, { email: this.email });
   }
 
   get totalStatusTrue() {
@@ -37,9 +39,9 @@ export class ThirdService {
     this.thirdapiService.postPray(intention, item);
   }
 
-  days(email: string) {
+  get days() {
 
-    const mapArrayPray = _.map(this.myArrayPray(email), 'numero');
+    const mapArrayPray = _.map(this.myArrayPray, 'numero');
     const maxArrayPray = _.maxBy(mapArrayPray);
 
     const mapDatasPadrao = _.map(this.standardDates, 'numero');
@@ -53,7 +55,8 @@ export class ThirdService {
       this.newCard(this.rounndTen(maxArrayPray) - 1)
     }
 
-    this.myArrayPray(email).forEach((item: any) => {
+    this.myArrayPray.forEach((item: any) => {
+      console.log(item)
       var filter = _.filter(this.standardDates, { numero: item.numero });
       if (filter.length > 0) {
         filter[0].status = item.status;

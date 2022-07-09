@@ -3,8 +3,8 @@ import { DatePipe } from '@angular/common';
 import * as _ from 'lodash';
 import { ThirdService } from 'src/app/services/third.service';
 import { ActivatedRoute, Router } from '@angular/router';
-
-
+import { MatDialog } from '@angular/material/dialog';
+import { DialogEmailComponent } from 'src/app/components/dialog-email/dialog-email.component';
 @Component({
   selector: 'app-third-campaign',
   templateUrl: './third-campaign.component.html',
@@ -14,14 +14,14 @@ export class ThirdCampaignComponent implements OnInit {
 
   public intention = '';
   private formatDate: string = 'dd-MM-yyyy';
-  private myEmail = 'alansiqma@gmail.com';
+  public myEmail = '';
 
   get totalStatusTrueCount() {
     return this.totalStatusTrue.length;
   };
 
   get days() {
-    return this.thirdService.days(this.myEmail);
+    return this.thirdService.days;
   }
 
   get validate() {
@@ -30,6 +30,7 @@ export class ThirdCampaignComponent implements OnInit {
 
   get myStatusTrueDiasCount() {
     var myStatusTrueDays = _.filter(this.myArrayPray, { status: true })
+    console.log(myStatusTrueDays)
     return myStatusTrueDays.length;
   }
 
@@ -38,14 +39,15 @@ export class ThirdCampaignComponent implements OnInit {
   }
 
   get myArrayPray() {
-    return this.thirdService.myArrayPray(this.myEmail);
+    return this.thirdService.myArrayPray;
   }
 
   constructor(
     private datePipe: DatePipe,
     private thirdService: ThirdService,
     private route: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -58,8 +60,19 @@ export class ThirdCampaignComponent implements OnInit {
           var intention = params['intention']
 
           if (intention != undefined && intention != '') {
-            this.intention = intention
-            this.thirdService.getIntention(this.intention);
+            this.intention = intention;
+
+            const dialogRef = this.dialog.open(DialogEmailComponent, {
+              // width: '250px',
+              disableClose: true,
+              data: { email: this.myEmail }
+            });
+
+            dialogRef.afterClosed().subscribe(result => {
+              this.myEmail = result.email;
+              this.thirdService.getIntention(this.intention, this.myEmail);
+            });
+
           } else {
             this.router.navigate(['/'])
           }

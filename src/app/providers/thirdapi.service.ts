@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment'
+import * as _ from 'lodash';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DabaseService {
+export class ThirdapiService {
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) { }
 
   arrayPray = [];
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import * as _ from 'lodash';
-import { DabaseService } from 'src/app/providers/dabase.service';
+import { ThirdService } from 'src/app/services/third.service';
 
 @Component({
   selector: 'app-home',
@@ -9,118 +9,51 @@ import { DabaseService } from 'src/app/providers/dabase.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  public tercosRezados = 0;
-  public intencao = 'teste4';
-  public datasPadrao = [
-    { numero: 1, status: false },
-    { numero: 2, status: false },
-    { numero: 3, status: false },
-    { numero: 4, status: false },
-    { numero: 5, status: false },
-    { numero: 6, status: false },
-    { numero: 7, status: false },
-    { numero: 8, status: false },
-    { numero: 9, status: false },
-    { numero: 10, status: false }
-  ];
 
-  get datas() {
-    // const mapArrayPray = _.map(this.myArrayPray, 'numero');
-    // const maxArrayPray = _.maxBy(mapArrayPray);
-
-    // const mapDatasPadrao = _.map(this.datasPadrao, 'numero');
-    // const maxDatasPadrao = _.maxBy(mapDatasPadrao);
-
-    // if (maxDatasPadrao != undefined &&
-    //   maxArrayPray != undefined &&
-    //   maxDatasPadrao < maxArrayPray
-    // ) {
-    //   this.novaCartela(this.arredondaDezena(maxArrayPray) - 1)
-    // }
-
-    return this.datasPadrao;
-  }
+  public intention = 'teste4';
+  private formatDate: string = 'dd-MM-yyyy';
+  private myEmail = 'alansiqma@gmail.com';
 
   get totalStatusTrueCount() {
     return this.totalStatusTrue.length;
   };
 
-
-  arredondaDezena(num: number) {
-    return Math.ceil(num / 10);
-  }
-
-  get dias() {
-
-    const mapArrayPray = _.map(this.myArrayPray, 'numero');
-    const maxArrayPray = _.maxBy(mapArrayPray);
-
-    const mapDatasPadrao = _.map(this.datasPadrao, 'numero');
-    const maxDatasPadrao = _.maxBy(mapDatasPadrao);
-
-    if (maxDatasPadrao != undefined &&
-      maxArrayPray != undefined &&
-      maxDatasPadrao < maxArrayPray
-    ) {
-      this.novaCartela(this.arredondaDezena(maxArrayPray) - 1)
-    }
-
-    this.myArrayPray.forEach((item: any) => {
-      var filter = _.filter(this.datas, { numero: item.numero });
-      if (filter.length > 0) {
-        filter[0].status = item.status;
-      }
-    })
-
-    return this.datas;
+  get days() {
+    return this.thirdService.days(this.myEmail);
   }
 
   get validate() {
-    return this.myStatusTrueDiasCount === this.datas.length;
+    return this.myStatusTrueDiasCount === this.thirdService.standardDates.length;
   }
 
   get myStatusTrueDiasCount() {
-    return this.myStatusTrueDias.length;
-  }
-
-  get myStatusTrueDias() {
-    return _.filter(this.myArrayPray, { status: true });
+    var myStatusTrueDays = _.filter(this.myArrayPray, { status: true })
+    return myStatusTrueDays.length;
   }
 
   get totalStatusTrue() {
-    return _.filter(this.database.arrayPray, { status: true });
+    return this.thirdService.totalStatusTrue;
   }
 
   get myArrayPray() {
-    return _.filter(this.database.arrayPray, { email: 'alansiqma@gmail.com' });
+    return this.thirdService.myArrayPray(this.myEmail);
   }
 
-  constructor(private datePipe: DatePipe, public database: DabaseService) {
-    this.database.getIntention(this.intencao);
+  constructor(private datePipe: DatePipe, public thirdService: ThirdService) {
+    this.thirdService.getIntention(this.intention);
   }
 
   ngOnInit(): void {
-
   }
 
   changeStatus(item: any) {
-    item.email = 'alansiqma@gmail.com'
+    item.email = this.myEmail
     item.status = !item.status;
-    item.data = this.datePipe.transform(new Date(), 'dd-MM-yyyy');
-    this.database.postPray(this.intencao, item);
+    item.data = this.datePipe.transform(new Date(), this.formatDate);
+    this.thirdService.postPray(this.intention, item);
   }
 
-  novaCartela(mutiplicador: number) {
-
-    let last = _.last(this.datas);
-    if (last?.numero != null) {
-      for (let i = 0; i < 10; i++) {
-        let novadata = {
-          numero: last?.numero + (i + 1),
-          status: false
-        }
-        this.datas.push(novadata)
-      }
-    }
+  newCard(mutiplicador: number) {
+    this.thirdService.newCard(mutiplicador);
   }
 }

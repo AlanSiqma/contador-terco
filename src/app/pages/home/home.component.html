@@ -2,7 +2,7 @@
     <div class="container">
         <div>
             <h3>Intenções do terço:</h3>
-            <p>{{intencao}}</p>
+            <p>{{intention}}</p>
             <div class="row">
                 <div class="col">
                     <h4>Terços rezados:</h4>
@@ -17,7 +17,7 @@
         <div class="">
             <div class="jumbotron">
                 <div class="row row-site">
-                    <div *ngFor="let item of dias" class="col-3">
+                    <div *ngFor="let item of days" class="col-3">
                         <button *ngIf="!item.status" class="btn btn-warning btn-block btn-site"
                             (click)="changeStatus(item)">
                             {{item.numero}}
@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div *ngIf="validate">
-                    <button type="button" class="btn btn-primary btn-circle btn-lg " (click)="novaCartela(1)">
+                    <button type="button" class="btn btn-primary btn-circle btn-lg " (click)="newCard(1)">
                         Adicionar
                     </button>
                 </div>

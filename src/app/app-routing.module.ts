@@ -9,7 +9,7 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'campanha-terco',
+    path: 'third-campaign',
     component: ThirdCampaignComponent
   }
 ];

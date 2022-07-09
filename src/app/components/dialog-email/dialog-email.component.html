@@ -1,11 +1,13 @@
-<h1 mat-dialog-title>Olá </h1>
-<div mat-dialog-content>
-    <p>Para podermos contabilizar informe seu e-mail</p>
-    <mat-form-field appearance="fill">
-        <mat-label>eu@gmail.com</mat-label>
-        <input matInput [(ngModel)]="data.email">
-    </mat-form-field>
-</div>
-<div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()" cdkFocusInitial class="btn btn-primary">Ok</button>
+<div class="dialog-site">
+    <h1 mat-dialog-title>Para podermos contabilizar os usuários que estão rezando o terço</h1>
+    <div mat-dialog-content>
+        <label class="subtitle">informe seu e-mail:</label>
+        <mat-form-field appearance="fill">
+            <mat-label>eu@gmail.com</mat-label>
+            <input matInput [(ngModel)]="data.email">
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions class="div-btn-dialog" align="end">
+        <button mat-button (click)="onNoClick()" cdkFocusInitial class="btn btn-primary">Ok</button>
+    </div>
 </div>

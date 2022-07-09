@@ -1,23 +1,26 @@
 <div class="terco-container">
     <div class="container">
         <div>
-            <h3>Intenções do terço:</h3>
-            <p>{{intention}}</p>
+            <div class="description-site">
+                <h3>Intenção do terço:</h3>
+                <p>{{intention}}</p>
+            </div>
             <div class="row">
-                <div class="col">
+                <div class="col description-site">
                     <h4>Terços rezados:</h4>
                     {{totalStatusTrueCount}}
                 </div>
-                <div class="col">
-                    <h4>Meus terços rezados</h4>
+                <div class="col  description-site">
+                    <h4>Meus terços rezados:</h4>
                     {{myStatusTrueDiasCount}}
                 </div>
             </div>
         </div>
-        <div class="">
+        <hr>
+        <div>
             <div class="jumbotron">
                 <div class="row row-site">
-                    <div *ngFor="let item of days" class="col-3">
+                    <div *ngFor="let item of days" class="col-2">
                         <button *ngIf="!item.status" class="btn btn-warning btn-block btn-site"
                             (click)="changeStatus(item)">
                             {{item.numero}}
@@ -29,7 +32,7 @@
                     </div>
                 </div>
                 <div *ngIf="validate">
-                    <button type="button" class="btn btn-primary btn-circle btn-lg " (click)="newCard(1)">
+                    <button type="button" class="btn btn-primary btn-site" (click)="newCard(1)">
                         Adicionar
                     </button>
                 </div>

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import * as _ from 'lodash';
 import { ThirdService } from 'src/app/services/third.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-third-campaign',
@@ -43,10 +44,12 @@ export class ThirdCampaignComponent implements OnInit {
   constructor(
     private datePipe: DatePipe,
     private thirdService: ThirdService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private router: Router) {
   }
 
   ngOnInit(): void {
+
     this.route.queryParams
       .subscribe(params => {
 
@@ -58,10 +61,10 @@ export class ThirdCampaignComponent implements OnInit {
             this.intention = intention
             this.thirdService.getIntention(this.intention);
           } else {
-            console.log('redirecionar');
+            this.router.navigate(['/'])
           }
         } else {
-          console.log('redirecionar');
+          this.router.navigate(['/'])
         }
       })
       ;

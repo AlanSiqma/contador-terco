@@ -34,7 +34,9 @@ export class ThirdapiService {
       .subscribe(
         (data: any) => {
           if (!data.erro) {
-            this.arrayPray = data.result[0].prayedRosaries;
+            if (data.result[0] != undefined) {
+              this.arrayPray = data.result[0].prayedRosaries;
+            }
           }
         }, (error) => console.log(error));
   }

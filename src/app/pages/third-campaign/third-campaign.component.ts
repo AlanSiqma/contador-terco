@@ -52,39 +52,41 @@ export class ThirdCampaignComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.validateQueryParams();
+  }
 
+  validateQueryParams() {
     this.route.queryParams
       .subscribe(params => {
-
-        if (params != undefined) {
-
-          var intention = params['intention'];
-
-          if (intention != undefined && intention != '') {
-            this.intention = intention;
-
-            const dialogRef = this.dialog.open(DialogEmailComponent, {
-              // width: '250px',
-              disableClose: true,
-              data: { email: this.myEmail }
-            });
-
-            dialogRef.afterClosed().subscribe(result => {
-              if (result != undefined && result.email != undefined) {
-                this.myEmail = result.email;
-                this.thirdService.getIntention(this.intention, this.myEmail);
-              } else {
-                this.router.navigate(['/'])
-              }
-            });
-          } else {
-            this.router.navigate(['/'])
-          }
+        var intention = params['intention'];
+        if (intention != undefined && intention != '') {
+          this.intention = intention;
+          this.getEmail();
         } else {
-          this.router.navigate(['/'])
+          this.initialPage();
         }
-      })
-      ;
+      });
+  }
+  getEmail() {
+    this.openDialogEmail();
+  }
+  openDialogEmail() {
+    const dialogRef = this.dialog.open(DialogEmailComponent, {
+      disableClose: true
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result != undefined && result.email != undefined) {
+        this.myEmail = result.email;
+        this.thirdService.getIntention(this.intention, this.myEmail);
+      } else {
+        this.initialPage();
+      }
+    });
+  }
+
+  initialPage() {
+    this.router.navigate(['/'])
   }
 
   changeStatus(item: any) {

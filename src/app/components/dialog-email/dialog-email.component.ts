@@ -8,9 +8,11 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 })
 export class DialogEmailComponent implements OnInit {
 
+  public data: any = { email: '' };
+
   constructor(
-    public dialogRef: MatDialogRef<DialogEmailComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    public dialogRef: MatDialogRef<DialogEmailComponent>
+
   ) { }
 
   ngOnInit(): void {

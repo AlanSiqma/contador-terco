@@ -9,6 +9,6 @@ Para rodar localmente recomendo baixar o projeto [backend](https://github.com/Al
 
 # Rodando local
 
-Apos baixar o projeto va na pasta initial e digit ng serve, ao termino do build a aplicação estara disponivel no [endereço](http://localhost:4200/)
+Apos baixar o projeto va na pasta inicial do projeto e no prompt de comando digite ng serve, ao termino do build a aplicação estara disponivel no [endereço](http://localhost:4200/)
 
 ![pagina inicial](https://github.com/AlanSiqma/contador-terco/blob/master/src/assets/initial-page-site.JPG)

@@ -16,6 +16,7 @@ import { DialogEmailComponent } from './components/dialog-email/dialog-email.com
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { FloatingButtonComponent } from './components/floating-button/floating-button.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MatInputModule } from '@angular/material/input';
     HeaderComponent,
     HomeComponent,
     ThirdCampaignComponent,
-    DialogEmailComponent
+    DialogEmailComponent,
+    FloatingButtonComponent
   ],
   imports: [
     BrowserModule,

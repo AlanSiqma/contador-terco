@@ -99,5 +99,4 @@ export class ThirdCampaignComponent implements OnInit {
   newCard(mutiplicador: number) {
     this.thirdService.newCard(mutiplicador);
   }
-
 }

@@ -20,14 +20,13 @@
         <div>
             <div class="jumbotron">
                 <div class="row row-site">
-                    <div *ngFor="let item of days" class="col-2">
-                        <button *ngIf="!item.status" class="btn btn-warning btn-block btn-site"
+                    <div *ngFor="let item of days" class="col-4 col-md-2">
+                        <button class="btn btn-block btn-site"
+                            [ngClass]="{'btn-warning btn-prayer':!item.status,'btn-primary btn-moother-good':item.status}"
                             (click)="changeStatus(item)">
-                            {{item.numero}}
-                        </button>
-                        <button *ngIf="item.status" class="btn btn-success btn-block btn-site"
-                            (click)="changeStatus(item)">
-                            {{item.numero}}
+                            <img class="btn-image"
+                                [src]="item.status?'assets/moother-good-2.jpg' :'assets/hand_prayer_prays_faith_icon.png'">
+
                         </button>
                     </div>
                 </div>

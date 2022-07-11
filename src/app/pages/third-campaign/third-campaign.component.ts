@@ -68,7 +68,12 @@ export class ThirdCampaignComponent implements OnInit {
       });
   }
   getEmail() {
-    this.openDialogEmail();
+    var user = localStorage.getItem('user');
+    if (user != null) {
+      this.myEmail = user;
+    } else {
+      this.openDialogEmail();
+    }
   }
   openDialogEmail() {
     const dialogRef = this.dialog.open(DialogEmailComponent, {
@@ -78,6 +83,7 @@ export class ThirdCampaignComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result != undefined && result.email != undefined) {
         this.myEmail = result.email;
+        localStorage.setItem('user', this.myEmail);
         this.thirdService.getIntention(this.intention, this.myEmail);
       } else {
         this.initialPage();

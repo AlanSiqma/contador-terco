@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DabaseService } from './dabase.service';
+import { ThirdapiService } from './thirdapi.service';
 
-describe('DabaseService', () => {
-  let service: DabaseService;
+describe('ThirdapiService', () => {
+  let service: ThirdapiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DabaseService);
+    service = TestBed.inject(ThirdapiService);
   });
 
   it('should be created', () => {

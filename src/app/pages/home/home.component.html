@@ -1,39 +1,19 @@
-<div class="terco-container">
-    <div class="container">
-        <div>
-            <h3>Intenções do terço:</h3>
-            <p>{{intencao}}</p>
-            <div class="row">
-                <div class="col">
-                    <h4>Terços rezados:</h4>
-                    {{totalStatusTrue}}
-                </div>
-                <div class="col">
-                    <h4>Meus terços rezados</h4>
-                    {{statusTrueDias}}
-                </div>
-            </div>
-        </div>
-        <div class="">
-            <div class="jumbotron">
-                <div class="row row-site">
-                    <div *ngFor="let item of dias" class="col-3">
-                        <button *ngIf="!item.status" class="btn btn-warning btn-block btn-site"
-                            (click)="changeStatus(item)">
-                            {{item.numero}}
-                        </button>
-                        <button *ngIf="item.status" class="btn btn-success btn-block btn-site"
-                            (click)="changeStatus(item)">
-                            {{item.numero}}
-                        </button>
-                    </div>
-                </div>
-                <div *ngIf="validate">
-                    <button type="button" class="btn btn-primary btn-circle btn-lg " (click)="novaCartela(1)">
-                        Adicionar
-                    </button>
-                </div>
-            </div>
-        </div>
+<div class="container">
+    <img src="../../../assets/church_icon.png" title="avatar site" alt="avatar site" class="avatar">
+    <h1 class="title">Crie uma nova campanha de oração ou busque uma já existente.</h1>
+    <label class="subtitle">Digite a intenção da campanha de oração:</label>
+    <div>
+        <label class="email-label">
+            <span class="email-icon" id="basic-addon1">
+                🙌
+            </span>
+            <input type="text" class="email-input" placeholder="reforma da igreja" aria-label="Username"
+                aria-describedby="basic-addon1" [(ngModel)]="intention">
+        </label>
+    </div>
+    <div>
+        <button class="btn btn-primary btn-lg btn-block " type="submit" (click)="nav()">
+            Pesquisar
+        </button>
     </div>
 </div>

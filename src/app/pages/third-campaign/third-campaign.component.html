@@ -1,1 +1,41 @@
-<p>third-campaign works!</p>
+<div class="terco-container">
+    <div class="container">
+        <div>
+            <div class="description-site">
+                <h3>Intenção do terço:</h3>
+                <p>{{intention}}</p>
+            </div>
+            <div class="row">
+                <div class="col description-site">
+                    <h4>Terços rezados:</h4>
+                    {{totalStatusTrueCount}}
+                </div>
+                <div class="col  description-site">
+                    <h4>Meus terços rezados:</h4>
+                    {{myStatusTrueDiasCount}}
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div>
+            <div class="jumbotron">
+                <div class="row row-site">
+                    <div *ngFor="let item of days" class="col-4 col-md-2">
+                        <button class="btn btn-block btn-site"
+                            [ngClass]="{'btn-warning btn-prayer':!item.status,'btn-primary btn-moother-good':item.status}"
+                            (click)="changeStatus(item)">
+                            <img class="btn-image"
+                                [src]="item.status?'assets/moother-good-2.jpg' :'assets/hand_prayer_prays_faith_icon.png'">
+                        </button>
+                    </div>
+                </div>
+                <div *ngIf="validate">
+                    <button type="button" class="btn btn-secondary btn-site" (click)="newCard(1)">
+                        Adicionar nova Cartela
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-floating-button></app-floating-button>

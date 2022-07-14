@@ -71,20 +71,26 @@ export class ThirdCampaignComponent implements OnInit {
     var user = localStorage.getItem('user');
     if (user != null) {
       this.myEmail = user;
+      this.refreshPage();
     } else {
       this.openDialogEmail();
     }
+  }
+
+  refreshPage() {
+    this.thirdService.getIntention(this.intention, this.myEmail);
   }
   openDialogEmail() {
     const dialogRef = this.dialog.open(DialogEmailComponent, {
       disableClose: true
     });
 
+
     dialogRef.afterClosed().subscribe(result => {
       if (result != undefined && result.email != undefined) {
         this.myEmail = result.email;
         localStorage.setItem('user', this.myEmail);
-        this.thirdService.getIntention(this.intention, this.myEmail);
+        this.refreshPage();
       } else {
         this.initialPage();
       }

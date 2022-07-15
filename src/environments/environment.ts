@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  urlBackEnd: 'https://contador-terco-backend.herokuapp.com/ThirdIntention/?intention='
+  urlBackEnd: 'http://localhost:8080/ThirdIntention/?intention='
 };
 
 /*

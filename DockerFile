@@ -8,7 +8,7 @@ RUN npm install
 
 COPY . /app
 
-RUN ng build 
+RUN ng build --prod
 
 FROM nginx:1.19.6
 

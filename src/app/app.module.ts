@@ -9,7 +9,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ThirdCampaignComponent } from './pages/third-campaign/third-campaign.component';
 import { DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogEmailComponent } from './components/dialog-email/dialog-email.component';
@@ -17,6 +17,7 @@ import { DialogEmailComponent } from './components/dialog-email/dialog-email.com
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FloatingButtonComponent } from './components/floating-button/floating-button.component';
+
 
 @NgModule({
   declarations: [
@@ -33,10 +34,12 @@ import { FloatingButtonComponent } from './components/floating-button/floating-b
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

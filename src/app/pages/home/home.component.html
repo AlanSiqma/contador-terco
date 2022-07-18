@@ -2,18 +2,20 @@
     <img src="../../../assets/church_icon.png" title="avatar site" alt="avatar site" class="avatar">
     <h1 class="title">Crie uma nova campanha de oração ou busque uma já existente.</h1>
     <label class="subtitle">Digite a intenção da campanha de oração:</label>
-    <div>
-        <label class="email-label">
-            <span class="email-icon" id="basic-addon1">
-                🙌
-            </span>
-            <input type="text" class="email-input" placeholder="reforma da igreja" aria-label="Username"
-                aria-describedby="basic-addon1" [(ngModel)]="intention">
-        </label>
-    </div>
-    <div>
-        <button class="btn btn-primary btn-lg btn-block " type="submit" (click)="nav()">
-            Pesquisar
-        </button>
-    </div>
+    <form [formGroup]="intentionForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label class="email-label">
+                <span class="email-icon" id="basic-addon1">
+                    🙌
+                </span>
+                <input type="text" class="email-input" placeholder="reforma da igreja" aria-label="Username"
+                    aria-describedby="basic-addon1" formControlName="intention">
+            </label>
+        </div>
+        <div>
+            <button class="btn btn-primary btn-lg btn-block " type="submit">
+                Pesquisar 🔎
+            </button>
+        </div>
+    </form>
 </div>

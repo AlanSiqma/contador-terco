@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators, FormControl } from '@angular/forms';
+
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-new-campaign',
+  templateUrl: './new-campaign.component.html',
+  styleUrls: ['./new-campaign.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class NewCampaignComponent implements OnInit {
 
   intentionForm = this.formBuilder.group({
     intention: new FormControl('', [Validators.minLength(5), Validators.required])

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import * as _ from 'lodash';
-import { ThirdService } from 'src/app/services/third.service';
+import { ThirdCampaignService } from 'src/app/services/third-campaign.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogEmailComponent } from 'src/app/components/dialog-email/dialog-email.component';
@@ -43,7 +43,7 @@ export class ThirdCampaignComponent implements OnInit {
 
   constructor(
     private datePipe: DatePipe,
-    private thirdService: ThirdService,
+    private thirdService: ThirdCampaignService,
     private route: ActivatedRoute,
     private router: Router,
     public dialog: MatDialog) {

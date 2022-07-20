@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  urlBackEnd: 'http://localhost:8080/ThirdIntention/?intention='
+  urlBackEnd: 'http://localhost:8080/ThirdIntention/'
 };
 
 /*

@@ -1,6 +1,9 @@
 <div class="container">
-    <img src="../../../assets/church_icon.png" title="avatar site" alt="avatar site" class="avatar">
-    <h1 class="title">Crie uma nova campanha de oração ou busque uma já existente.</h1>
+    <a href="/">
+        <img src="../../../assets/church_icon.png" title="avatar site" alt="avatar site" class="avatar">
+    </a>
+    <h1 class="title">Crie uma nova campanha de oração</h1>
+    <label class="subtitle">caso ela exista abrira a sua cartela.</label>
     <label class="subtitle">Digite a intenção da campanha de oração:</label>
     <form [formGroup]="intentionForm" (ngSubmit)="onSubmit()">
         <div>

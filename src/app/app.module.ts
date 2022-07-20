@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
-import { HomeComponent } from './pages/home/home.component';
 import { ThirdCampaignComponent } from './pages/third-campaign/third-campaign.component';
 import { DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,6 +16,8 @@ import { DialogEmailComponent } from './components/dialog-email/dialog-email.com
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FloatingButtonComponent } from './components/floating-button/floating-button.component';
+import { CampaignsComponent } from './pages/campaigns/campaigns.component';
+import { NewCampaignComponent } from './pages/new-campaign/new-campaign.component';
 
 
 @NgModule({
@@ -24,10 +25,11 @@ import { FloatingButtonComponent } from './components/floating-button/floating-b
     AppComponent,
     FooterComponent,
     HeaderComponent,
-    HomeComponent,
     ThirdCampaignComponent,
     DialogEmailComponent,
-    FloatingButtonComponent
+    FloatingButtonComponent,
+    CampaignsComponent,
+    NewCampaignComponent
   ],
   imports: [
     BrowserModule,

@@ -9,11 +9,13 @@ import * as _ from 'lodash';
 export class ThirdapiService {
   clean() {
     this.arrayPray = [];
+    this.allPray = [];
   }
 
   constructor(private http: HttpClient) { }
 
   arrayPray = [];
+  allPray = []
 
   initilizeHeader() {
     const headers = new HttpHeaders({
@@ -40,6 +42,21 @@ export class ThirdapiService {
           }
         }, (error) => console.log(error));
   }
+
+  get() {
+    let header = { headers: this.initilizeHeader() };
+    var urlBackEnd = `${environment.urlBackEnd}`;
+    return this.http.get(urlBackEnd, header)
+      .subscribe(
+        (data: any) => {
+          if (!data.erro) {
+            if (data.result != undefined) {
+              this.allPray = data.result;
+            }
+          }
+        }, (error) => console.log(error));
+  }
+
 
   postPray(intention: string, body: any) {
 

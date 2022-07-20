@@ -1,0 +1,16 @@
+<div class="container">
+    <img src="../../../assets/church_icon.png" title="avatar site" alt="avatar site" class="avatar">
+    <h1 class="title">Busque uma nova campanha de oração.</h1>
+    <label class="subtitle">ou clique <a href="/new-campaign">aqui</a> para criar uma nova</label>
+    <div class="row">
+        <div *ngFor="let item of allPray" class="col">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Catela de oração:</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{item}}</h6>
+                </div>
+                <a href="/third-campaign?intention={{item}}" class="card-link">Ir para cartela</a>
+            </div>
+        </div>
+    </div>
+</div>

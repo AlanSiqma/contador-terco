@@ -46,15 +46,7 @@ export class ThirdapiService {
   get() {
     let header = { headers: this.initilizeHeader() };
     var urlBackEnd = `${environment.urlBackEnd}`;
-    return this.http.get(urlBackEnd, header)
-      .subscribe(
-        (data: any) => {
-          if (!data.erro) {
-            if (data.result != undefined) {
-              this.allPray = data.result;
-            }
-          }
-        }, (error) => console.log(error));
+    return this.http.get(urlBackEnd, header);
   }
 
 

@@ -34,7 +34,7 @@ export class CampaignsComponent implements OnInit {
     var intention = this.searchIntention;
 
     this.prayFilter = _.filter(this.allPray, function (item) {
-      return item?.includes(intention)
+      return item.toLowerCase()?.includes(intention.toLowerCase())
     });
   }
 

@@ -10,6 +10,9 @@ import { Router } from '@angular/router';
 })
 export class CampaignsComponent implements OnInit {
 
+  public searchIntention = '';
+
+
   get allPray() {
     return _.map(this.thirdService.allPray, 'descriptionIntention');
   }
@@ -20,6 +23,14 @@ export class CampaignsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  search() {
+    var maxLengthSearch = 4;
+    if (this.searchIntention.length >= maxLengthSearch) {
+      console.log(this.searchIntention)
+    }
+  }
+
 
   navigatePage(intention: string) {
     this.router.navigate([`/?intention=${intention}`])

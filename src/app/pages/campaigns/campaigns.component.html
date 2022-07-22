@@ -1,6 +1,15 @@
 <div class="container">
     <img src="../../../assets/church_icon.png" title="avatar site" alt="avatar site" class="avatar">
     <h1 class="title">Busque uma nova campanha de oração.</h1>
+    <div>
+        <label class="search-label">
+            <span class="search-icon" id="basic-addon1">
+                🔍
+            </span>
+            <input type="text" class="search-input" placeholder="pesquise uma intenção" aria-label="Username"
+                aria-describedby="basic-addon1" [(ngModel)]="searchIntention" (keyup)="search()">
+        </label>
+    </div>
     <label class="subtitle">ou clique <a href="/new-campaign">aqui</a> para criar uma nova</label>
     <div class="row">
         <div *ngFor="let item of allPray" class="col">

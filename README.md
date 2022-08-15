@@ -10,6 +10,6 @@ O projeto foi gerado em [Angular CLI](https://github.com/angular/angular-cli) ve
 
 Para rodar localmente baixar o projeto [backend](https://github.com/AlanSiqma/contador-terco-backend), e executa-lo.
 
-# Rodando Aoplicação localmente
+# Rodando Aplicação localmente
 
 Apos baixar o projeto va na pasta inicial do projeto e no prompt de comando digite ng serve, ao termino do build a aplicação estara disponivel no [endereço](http://localhost:4200/)

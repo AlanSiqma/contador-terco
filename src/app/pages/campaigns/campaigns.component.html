@@ -11,15 +11,15 @@
         </label>
     </div>
     <label class="subtitle">ou clique <a href="/new-campaign">aqui</a> para criar uma nova</label>
-    <div class="row">
+    <div class="row row-campaigns">
         <div *ngFor="let item of prayFilter" class="col">
-            <div class="card" style="width: 18rem;">
+            <a href="/third-campaign?intention={{item}}" class="card a-card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">Cartela de oração:</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{item}}</h6>
                 </div>
-                <a href="/third-campaign?intention={{item}}" class="card-link">Ir para cartela</a>
-            </div>
+                <!-- <a href="/third-campaign?intention={{item}}" class="card-link">Ir para cartela</a> -->
+            </a>
         </div>
     </div>
 </div>

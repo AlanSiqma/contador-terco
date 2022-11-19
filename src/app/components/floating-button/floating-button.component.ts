@@ -16,7 +16,7 @@ export class FloatingButtonComponent implements OnInit {
   ngOnInit(): void {
   }
   shareWhatsapp() {
-    var urlWhats = "https://api.whatsapp.com/send?text=";
+    var urlWhats = "https://api.whatsapp.com/send?text=Olá, me ajude nessa campanha do rozario:\n ";
     var fromartHref = encodeURIComponent(window.location.href);
     var url = `${urlWhats}${fromartHref}`;
     console.log(url)

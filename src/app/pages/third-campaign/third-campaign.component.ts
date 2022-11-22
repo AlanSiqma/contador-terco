@@ -102,6 +102,7 @@ export class ThirdCampaignComponent implements OnInit {
   }
 
   changeStatus(item: any) {
+    console.log(this.intention)
     item.email = this.myEmail
     item.status = !item.status;
     item.data = this.datePipe.transform(new Date(), this.formatDate);

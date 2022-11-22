@@ -45,6 +45,9 @@ export class ThirdCampaignService {
   postPray(intention: string, item: any) {
     this.thirdapiService.postPray(intention, item);
   }
+  postPrayintentionObject(intentionObject: any, item: any) {
+    this.thirdapiService.postPrayintentionObject(intentionObject, item);
+  }
 
   get days() {
 

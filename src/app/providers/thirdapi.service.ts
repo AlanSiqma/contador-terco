@@ -66,4 +66,20 @@ export class ThirdapiService {
           }
         }, (error) => console.log(error));
   }
+  postPrayintentionObject(intentionObject: any, body: any) {
+
+    var pray = { email: body.email, data: body.data, status: body.status, numero: body.numero };
+
+    let header = { headers: this.initilizeHeader() };
+
+    var urlBackEnd = `${environment.urlBackEnd}${intentionObject.description}`;
+
+    return this.http.post(urlBackEnd, pray, header)
+      .subscribe(
+        (data: any) => {
+          if (!data.erro) {
+            this.getIntention(intentionObject.description);
+          }
+        }, (error) => console.log(error));
+  }
 }

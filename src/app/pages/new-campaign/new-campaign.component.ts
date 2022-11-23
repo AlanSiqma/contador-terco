@@ -35,12 +35,13 @@ export class NewCampaignComponent implements OnInit {
     }
     else if (intention != '') {
       let intentionObject = {
-        description: intention,
+        descriptionIntention: intention,
         userCreated: this.myEmail
       }
       this.thirdService.postPrayintentionObject(intentionObject, null);
 
       var endpoint = `/third-campaign?intention=${intention}`;
+
       this.router.navigateByUrl(endpoint);
     }
   }

@@ -37,6 +37,7 @@ export class ThirdapiService {
         (data: any) => {
           if (!data.erro) {
             if (data.result[0] != undefined) {
+              console.log(data.result)
               this.arrayPray = data.result[0].prayedRosaries;
             }
           }
@@ -67,18 +68,17 @@ export class ThirdapiService {
         }, (error) => console.log(error));
   }
   postPrayintentionObject(intentionObject: any, body: any) {
-
-    var pray = { email: body.email, data: body.data, status: body.status, numero: body.numero };
-
     let header = { headers: this.initilizeHeader() };
 
-    var urlBackEnd = `${environment.urlBackEnd}${intentionObject.description}`;
+    intentionObject.prayedRosaries = [];
 
-    return this.http.post(urlBackEnd, pray, header)
+    var urlBackEnd = `${environment.urlBackEnd2}${intentionObject.descriptionIntention}`;
+    return this.http.post(urlBackEnd, intentionObject, header)
       .subscribe(
         (data: any) => {
           if (!data.erro) {
-            this.getIntention(intentionObject.description);
+
+            console.log('sucesso')
           }
         }, (error) => console.log(error));
   }

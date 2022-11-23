@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  urlBackEnd: 'http://localhost:8080/ThirdIntention/'
+  urlBackEnd: 'http://localhost:8080/ThirdIntention/',
+  urlBackEnd2: 'http://localhost:8080/newthirdIntention/'
 };
 
 /*

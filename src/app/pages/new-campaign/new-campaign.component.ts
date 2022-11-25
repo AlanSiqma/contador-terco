@@ -36,7 +36,8 @@ export class NewCampaignComponent implements OnInit {
     else if (intention != '') {
       let intentionObject = {
         descriptionIntention: intention,
-        userCreated: this.myEmail
+        userCreated: this.myEmail,
+        prayedRosaries: []
       }
       this.thirdService.postPrayintentionObject(intentionObject, null);
 

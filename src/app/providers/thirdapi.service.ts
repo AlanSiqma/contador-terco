@@ -70,14 +70,12 @@ export class ThirdapiService {
   postPrayintentionObject(intentionObject: any, body: any) {
     let header = { headers: this.initilizeHeader() };
 
-    intentionObject.prayedRosaries = [];
+    var urlBackEnd = `${environment.urlBackEndnewthirdIntention}${intentionObject.descriptionIntention}`;
 
-    var urlBackEnd = `${environment.urlBackEnd2}${intentionObject.descriptionIntention}`;
     return this.http.post(urlBackEnd, intentionObject, header)
       .subscribe(
         (data: any) => {
           if (!data.erro) {
-
             console.log('sucesso')
           }
         }, (error) => console.log(error));

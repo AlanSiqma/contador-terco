@@ -76,7 +76,7 @@ export class ThirdapiService {
       .subscribe(
         (data: any) => {
           if (!data.erro) {
-            console.log('sucesso')
+            // console.log('sucesso')
           }
         }, (error) => console.log(error));
   }

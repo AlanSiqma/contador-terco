@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
-export class Foorozariomponent implements OnInit {
+export class FooterComponent implements OnInit {
 
   constructor() { }
 

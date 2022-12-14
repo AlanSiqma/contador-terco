@@ -30,7 +30,7 @@ export class ThirdapiService {
 
     let header = { headers: this.initilizeHeader() };
 
-    var urlBackEnd = `${environment.urlBackEnd}${intention}`;
+    var urlBackEnd = `${environment.urlBackEnd}ThirdIntention/${intention}`;
 
     return this.http.get(urlBackEnd, header)
       .subscribe(
@@ -46,7 +46,7 @@ export class ThirdapiService {
 
   get() {
     let header = { headers: this.initilizeHeader() };
-    var urlBackEnd = `${environment.urlBackEnd}`;
+    var urlBackEnd = `${environment.urlBackEnd}ThirdIntention/`;
     return this.http.get(urlBackEnd, header);
   }
 
@@ -57,7 +57,7 @@ export class ThirdapiService {
 
     let header = { headers: this.initilizeHeader() };
 
-    var urlBackEnd = `${environment.urlBackEnd}${intention}`;
+    var urlBackEnd = `${environment.urlBackEnd}ThirdIntention/${intention}`;
 
     return this.http.post(urlBackEnd, pray, header)
       .subscribe(
@@ -70,7 +70,7 @@ export class ThirdapiService {
   postPrayintentionObject(intentionObject: any, body: any) {
     let header = { headers: this.initilizeHeader() };
 
-    var urlBackEnd = `${environment.urlBackEndnewthirdIntention}${intentionObject.descriptionIntention}`;
+    var urlBackEnd = `${environment.urlBackEnd}newthirdIntention/${intentionObject.descriptionIntention}`;
 
     return this.http.post(urlBackEnd, intentionObject, header)
       .subscribe(

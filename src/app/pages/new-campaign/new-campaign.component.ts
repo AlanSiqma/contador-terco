@@ -33,7 +33,8 @@ export class NewCampaignComponent implements OnInit {
     if (this.myEmail == '') {
       this.getEmail();
     }
-    else if (intention != '') {
+    if (intention != '') {
+      console.log("aqui")
       let intentionObject = {
         descriptionIntention: intention,
         userCreated: this.myEmail,
